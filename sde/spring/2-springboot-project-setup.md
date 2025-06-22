@@ -13,3 +13,11 @@
    3. h2 database
 7. generate zip
 8. extract & import project in IDE
+
+## Understanding Layered Architecture
+Users -> Application
+
+Controller -> Service -> Repository -> DB
+
+DTO, Utility, Entity, Config
+
