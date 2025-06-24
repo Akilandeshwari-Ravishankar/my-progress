@@ -18,4 +18,16 @@ Most of them are class level annotations
   2. Service = specialization of @Component -> indicates component that handles core business logic
   3. Repository = specialization of @Component -> indicates component that handles db interaction logic
   4. Autowired = dependency inject the component for us -> also called field injection/ autowiring
-  5. Configuration = enable many explicit bean creations inside the annotated class. By default proxyBeanMethods & enforceUniqueMethods is true -> all are Singleton beans & no conflicting beans are present in configuration class. 
+  5. Configuration = enable many explicit bean creations inside the annotated class. By default proxyBeanMethods & enforceUniqueMethods is true -> all are Singleton beans & no conflicting beans are present in configuration class.
+  6. ComponentScan = annotation through which application finds the beans -> scans for the components/ beans present in the package of @SpringBootApplication annotated class
+     1. @CompoenentScan needs to be used along with @Configuration
+     2. ```java
+        @ComponentScan(
+          basePackages = {"com.example.package1", "com.example.package2"},
+          excludeFilters = @ComponentScan.Filter(
+            type = FilterType.ASSIGNABLE_TYPE,
+            classes = {DeprecatedService.class}
+          )
+        )
+        ```
+  7. SpringBootApplication = @SpringBootConfiguration + @EnableAutoConfiguration + @ComponentScan   
